@@ -305,24 +305,32 @@ $(function() {
   // --------------------------------------------- //
   // Contact Form Start
   // --------------------------------------------- //
-  $("#contact-form").submit(function() { //Change
-		var th = $(this);
-		$.ajax({
-			type: "POST",
-			url: "mail.php", //Change
-			data: th.serialize()
-		}).done(function() {
-      $('.contact').find('.form').addClass('is-hidden');
-      $('.contact').find('.form__reply').addClass('is-visible');
-			setTimeout(function() {
-				// Done Functions
-        $('.contact').find('.form__reply').removeClass('is-visible');
-        $('.contact').find('.form').delay(300).removeClass('is-hidden');
-				th.trigger("reset");
-			}, 5000);
-		});
-		return false;
-	});
+  $("#contact-form").submit(function(e) {
+    e.preventDefault();
+    var th = $(this);
+    $.ajax({
+      type: "POST",
+      url: "mail.php",
+      data: th.serialize(),
+      dataType: 'json'
+    }).done(function(response) {
+      if (response.success) {
+        $('.contact').find('.form').addClass('is-hidden');
+        $('.contact').find('.form__reply').addClass('is-visible');
+        setTimeout(function() {
+          $('.contact').find('.form__reply').removeClass('is-visible');
+          $('.contact').find('.form').delay(300).removeClass('is-hidden');
+          th.trigger("reset");
+        }, 5000);
+      } else {
+        alert(response.message || 'An error occurred. Please try again.');
+      }
+    }).fail(function(xhr, status, error) {
+      alert('An error occurred. Please try again later.');
+      console.error('Form submission error:', status, error);
+    });
+    return false;
+  });
   // --------------------------------------------- //
   // Contact Form End
   // --------------------------------------------- //
