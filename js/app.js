@@ -53,22 +53,8 @@ $(function() {
       document.getElementById("loader").classList.add("loaded");
     }, 300);
 
-    gsap.set(".animate-headline", {y: 50, opacity: 0});
-    ScrollTrigger.batch(".animate-headline", {
-      interval: 0.1,
-      batchMax: 4,
-      duration: 6,
-      onEnter: batch => gsap.to(batch, {
-        opacity: 1, 
-        y: 0,
-        ease: 'sine',
-        stagger: {each: 0.15, grid: [1, 4]}, 
-        overwrite: true
-      }),
-      onLeave: batch => gsap.set(batch, {opacity: 1, y: 0, overwrite: true}),
-      onEnterBack: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: 0.15, overwrite: true}),
-      onLeaveBack: batch => gsap.set(batch, {opacity: 0, y: 50, overwrite: true})
-    });
+    // Removed headline entrance animation: it created an unwanted visual effect.
+    // If you want entrance animations back later, re-enable with care.
 
   });
   // --------------------------------------------- //
