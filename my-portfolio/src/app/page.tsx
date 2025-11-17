@@ -74,53 +74,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* CSS animations */}
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes bounce {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-8px);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out forwards;
-        }
-
-        .animate-fade-in:nth-child(1) {
-          animation-delay: 0.1s;
-        }
-
-        .animate-fade-in:nth-child(2) {
-          animation-delay: 0.2s;
-        }
-
-        .animate-fade-in:nth-child(3) {
-          animation-delay: 0.3s;
-        }
-
-        .animate-fade-in:nth-child(4) {
-          animation-delay: 0.4s;
-        }
-
-        .animate-bounce {
-          animation: bounce 2s infinite;
-        }
-      `}</style>
     </div>
   );
 }
