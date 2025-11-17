@@ -28,7 +28,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <script src="https://unpkg.com/@splinetool/viewer@latest/build/spline-viewer.js" async></script>
       </body>
     </html>
   );

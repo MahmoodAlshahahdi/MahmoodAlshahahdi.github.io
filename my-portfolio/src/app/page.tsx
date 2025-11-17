@@ -1,7 +1,3 @@
-'use client';
-
-import { SplineViewer } from '@/components/spline-viewer';
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white">
@@ -64,14 +60,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right side: 3D Robot Scene (hidden on mobile/tablet) */}
-        <div className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 h-screen items-center justify-center pointer-events-auto z-40">
-          <div className="relative w-80 h-80 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0">
-            <SplineViewer 
-              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            />
-          </div>
-        </div>
+        {/* Right side: 3D Robot Scene removed (disabled) */}
+        {/* Spline 3D viewer removed per request */}
       </section>
     </div>
   );
