@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-between px-8 md:px-16 lg:px-24 overflow-hidden">
+      <section className="relative min-h-screen flex items-center px-8 md:px-16 overflow-hidden">
         {/* Left side: Text content */}
         <div className="relative z-10 max-w-2xl">
           {/* Subtitle */}
@@ -65,8 +65,8 @@ export default function Home() {
         </div>
 
         {/* Right side: 3D Robot Scene (hidden on mobile/tablet) */}
-        <div className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-screen items-center justify-center pointer-events-auto">
-          <div className="relative w-96 h-96 rounded-3xl overflow-hidden shadow-2xl">
+        <div className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 h-screen items-center justify-center pointer-events-auto">
+          <div className="relative w-80 h-80 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0">
             <SplineViewer 
               scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
               className="w-full h-full"
