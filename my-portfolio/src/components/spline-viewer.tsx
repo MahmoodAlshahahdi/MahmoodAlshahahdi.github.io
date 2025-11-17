@@ -1,7 +1,7 @@
 'use client';
 
-import { Suspense, lazy } from 'react';
-const Spline = lazy(() => import('@splinetool/react-spline'));
+import { useEffect } from 'react';
+import React from 'react';
 
 interface SplineViewerProps {
   scene: string;
@@ -9,18 +9,19 @@ interface SplineViewerProps {
 }
 
 export function SplineViewer({ scene, className }: SplineViewerProps) {
-  return (
-    <Suspense
-      fallback={
-        <div className="w-full h-full flex items-center justify-center bg-zinc-100">
-          <span className="text-zinc-500">Loading 3D scene...</span>
-        </div>
-      }
-    >
-      <Spline
-        scene={scene}
-        className={className}
-      />
-    </Suspense>
-  );
+  useEffect(() => {
+    // Load Spline viewer script if not already loaded
+    if (!window.customElements.get('spline-viewer')) {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/@splinetool/viewer@latest/build/spline-viewer.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
+  return React.createElement('spline-viewer' as any, {
+    url: scene,
+    className: className,
+    style: { width: '100%', height: '100%' }
+  });
 }

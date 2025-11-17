@@ -69,7 +69,6 @@ export default function Home() {
           <div className="relative w-80 h-80 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0">
             <SplineViewer 
               scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-              className="w-full h-full"
             />
           </div>
         </div>
